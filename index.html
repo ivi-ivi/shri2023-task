@@ -215,7 +215,7 @@
                 initedRef.current = true;
                 setActiveTab(new URLSearchParams(location.search).get('tab') || 'all');
             }
-        });
+        }, [activeTab, initedRef]);
 
         const onSelectInput = event => {
             setActiveTab(event.target.value);
@@ -234,7 +234,7 @@
             if (newHasRightScroll !== hasRightScroll) {
                 setHasRightScroll(newHasRightScroll);
             }
-        });
+        }, [ref, sizes, hasRightScroll]);
 
         const onArrowCLick = () => {
             const scroller = ref.current.querySelector('.section__panel:not(.section__panel_hidden)');
@@ -391,7 +391,6 @@
         </main>;
     }
 
-    setTimeout(() => {
         const root = ReactDOM.createRoot(document.getElementById('app'));
         root.render(
             <>
@@ -399,7 +398,6 @@
                 <Main />
             </>
         );
-    }, 100);
 </script>
 
 </body>
